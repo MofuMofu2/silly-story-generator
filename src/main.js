@@ -26,6 +26,11 @@ function result() {
   const yItem = randomValueFromArray(insertY);
   const zItem = randomValueFromArray(insertZ);
 
+  story.textContent = replaceTexts(newStory, xItem, yItem, zItem);
+  story.style.visibility = 'visible';
+}
+
+function replaceTexts(newStory, customName, xItem, yItem, zItem) {
   const replaceX = newStory.replaceAll(":insertx:", xItem);
   const replaceY = replaceX.replace(":inserty:", yItem);
   let replaceZ = replaceY.replace(":insertz:", zItem)
@@ -42,7 +47,5 @@ function result() {
     replaceZ = replaceZ.replace("94 fahrenheit", temperature);
     replaceZ = replaceZ.replace("300 pounds", weight);
   }
-
-  story.textContent = replaceZ;
-  story.style.visibility = 'visible';
+  return replaceZ;
 }
